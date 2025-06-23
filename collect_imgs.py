@@ -5,7 +5,7 @@ DATA_DIR = './data'
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
-number_of_classes = 10
+number_of_classes = 9
 
 dataset_size = 200
 
