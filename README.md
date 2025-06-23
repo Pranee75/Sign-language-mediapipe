@@ -64,6 +64,19 @@ Thanks to their open-source work and the MIT License, I was able to build, break
 
 ---
 
+## 📦 Model Files
+
+> **Note:**  
+> The trained model (`model.p`) and label encoder (`label_encoder.pkl`) are **not included** in this repository to keep it lightweight and clean.  
+>  
+> You can generate them by running:
+> ```bash
+> python train_classifier.py
+> ```
+
+---
+
+
 ## 💡 Final Note
 
 This is my first ML-based project — it may not be perfect, but it’s real.  
