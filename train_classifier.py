@@ -28,13 +28,19 @@ for features, label in zip(data_list, label_list):
         filtered_labels.append(label)
 
 print(f"Total valid samples after filtering: {len(filtered_data)}")
+print("Unique class labels in filtered dataset:", set(filtered_labels))
+print("Number of classes:", len(set(filtered_labels)))
 
 if len(filtered_data) == 0:
     raise ValueError("No valid samples found. Check if your landmark data is being extracted correctly.")
 
+# Encode labels
+label_encoder = LabelEncoder()
+labels = label_encoder.fit_transform(filtered_labels)
+print("Classes learned by LabelEncoder:", label_encoder.classes_)
+
 # Convert to NumPy arrays
 data = np.array(filtered_data)
-labels = np.array(filtered_labels)
 
 # Train/test split
 x_train, x_test, y_train, y_test = train_test_split(
@@ -53,3 +59,9 @@ print(f'{score * 100:.2f}% of samples were classified correctly!')
 # Save model
 with open('model.p', 'wb') as f:
     pickle.dump({'model': model}, f)
+
+# Save label encoder
+with open('label_encoder.pkl', 'wb') as f:
+    pickle.dump(label_encoder, f)
+
+
